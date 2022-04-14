@@ -4,5 +4,6 @@ module EmailApp {
     requires javafx.graphics;
     requires javafx.controls;
 
-    opens com.test;
+    opens com.barosanu;
+    opens com.barosanu.view;
 }
