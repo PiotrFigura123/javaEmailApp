@@ -3,6 +3,8 @@ module EmailApp {
     requires javafx.web;
     requires javafx.graphics;
     requires javafx.controls;
+    requires activation;
+    requires java.mail;
 
     opens com.barosanu;
     opens com.barosanu.view;
