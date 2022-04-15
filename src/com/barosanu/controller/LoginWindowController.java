@@ -1,6 +1,8 @@
 package com.barosanu.controller;
 
 import com.barosanu.EmailMenager;
+import com.barosanu.controller.services.LoginService;
+import com.barosanu.model.EmailAccount;
 import com.barosanu.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -31,9 +33,31 @@ public class LoginWindowController extends BaseController {
 
     @FXML
     void loginButtonAction() {
+        if(fieldsAreVlid()){
+            EmailAccount emailAccount = new EmailAccount(emailAdressField.getText(), passwordField.getText());
+            LoginService loginService = new LoginService(emailAccount, emailMenager);
+            EmailLoginResult emailLoginResult = loginService.login();
+            switch (emailLoginResult){
+                case SUCCESS:
+                    System.out.println("login success!!!" +emailAccount);
+                    return;
+            }
+        }
         System.out.println("click");
         viewFactory.showMainWindow();
         Stage stage = (Stage) errorLabel.getScene().getWindow();
         viewFactory.closeStage(stage);
+    }
+
+    private boolean fieldsAreVlid() {
+        if(emailAdressField.getText().isEmpty()){
+            errorLabel.setText("please fill email");
+            return false;
+        }
+        if(passwordField.getText().isEmpty()){
+            errorLabel.setText("Please fill password");
+            return false;
+        }
+        return true;
     }
 }
