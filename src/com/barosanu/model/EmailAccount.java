@@ -1,6 +1,7 @@
 package com.barosanu.model;
 
 import javax.mail.Store;
+import javax.mail.Session;
 import java.security.PrivateKey;
 import java.util.Properties;
 
@@ -37,14 +38,14 @@ public class EmailAccount {
     public EmailAccount(String address, String password) {
         this.address = address;
         this.password = password;
-        properties =new Properties();
-        properties.put("incomingHost","imap.gmail.com");
-        properties.put("mail.store.protocol","imaps");
+        properties = new Properties();
+        properties.put("incomingHost", "imap.gmail.com");
+        properties.put("mail.store.protocol", "imaps");
 
-        properties.put("mail.transport.protocol","smtps");
-        properties.put("mail.smtps.host","smtp.gmail.com");
-        properties.put("mail.smtps.auth","true");
-        properties.put("outgoingHost","smtp.gmail.com");
+        properties.put("mail.transport.protocol", "smtps");
+        properties.put("mail.smtps.host", "smtp.gmail.com");
+        properties.put("mail.smtps.auth", "true");
+        properties.put("outgoingHost", "smtp.gmail.com");
     }
 
 

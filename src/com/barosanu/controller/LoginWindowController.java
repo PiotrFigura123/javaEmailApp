@@ -26,13 +26,10 @@ public class LoginWindowController extends BaseController {
         super(emailMenager, viewFactory, fxmlName);
     }
 
-    //@FXML
-   // void cancelLoginAction(ActionEvent event) {
-
-    //}
 
     @FXML
     void loginButtonAction() {
+        System.out.println("loginButtonAction!");
         if(fieldsAreVlid()){
             EmailAccount emailAccount = new EmailAccount(emailAdressField.getText(), passwordField.getText());
             LoginService loginService = new LoginService(emailAccount, emailMenager);
@@ -40,13 +37,14 @@ public class LoginWindowController extends BaseController {
             switch (emailLoginResult){
                 case SUCCESS:
                     System.out.println("login success!!!" +emailAccount);
+                    viewFactory.showMainWindow();
+                    Stage stage = (Stage) errorLabel.getScene().getWindow();
+                    viewFactory.closeStage(stage);
                     return;
             }
         }
-        System.out.println("click");
-        viewFactory.showMainWindow();
-        Stage stage = (Stage) errorLabel.getScene().getWindow();
-        viewFactory.closeStage(stage);
+
+
     }
 
     private boolean fieldsAreVlid() {
