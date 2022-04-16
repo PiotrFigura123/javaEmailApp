@@ -33,15 +33,19 @@ public class LoginWindowController extends BaseController {
         if(fieldsAreVlid()){
             EmailAccount emailAccount = new EmailAccount(emailAdressField.getText(), passwordField.getText());
             LoginService loginService = new LoginService(emailAccount, emailMenager);
-            EmailLoginResult emailLoginResult = loginService.login();
-            switch (emailLoginResult){
-                case SUCCESS:
-                    System.out.println("login success!!!" +emailAccount);
-                    viewFactory.showMainWindow();
-                    Stage stage = (Stage) errorLabel.getScene().getWindow();
-                    viewFactory.closeStage(stage);
-                    return;
-            }
+            loginService.start();
+            loginService.setOnSucceeded(event -> {
+                EmailLoginResult emailLoginResult = loginService.getValue();
+                switch (emailLoginResult){
+                    case SUCCESS:
+                        System.out.println("login success!!!" +emailAccount);
+                        viewFactory.showMainWindow();
+                        Stage stage = (Stage) errorLabel.getScene().getWindow();
+                        viewFactory.closeStage(stage);
+                        return;
+                }
+            });
+
         }
 
 
