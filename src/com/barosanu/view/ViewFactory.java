@@ -16,10 +16,14 @@ import java.util.ArrayList;
 public class ViewFactory {
     private EmailMenager emailMenager;
     private ArrayList<Stage> activeStages;
+    private boolean mainViewInitialized = false;
     public ViewFactory(EmailMenager emailMenager) {
 
         this.emailMenager = emailMenager;
         activeStages = new ArrayList<Stage>();
+    }
+    public boolean isMainViewInitialized(){
+        return mainViewInitialized;
     }
 
     private ColorTheme colorTheme = ColorTheme.DARK;
@@ -52,6 +56,7 @@ public class ViewFactory {
         System.out.println("main window");
         BaseController controller = new MainWindowController(emailMenager,this, "MainWindow.fxml");
         initializeStage(controller);
+        mainViewInitialized = true;
     }
     public void showOptionsWindow(){
         System.out.println("Options window");
