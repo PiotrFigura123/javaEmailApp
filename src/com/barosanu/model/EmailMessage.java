@@ -10,7 +10,7 @@ import java.util.Date;
 public class EmailMessage {
     private SimpleStringProperty subject;
     private SimpleStringProperty sender;
-    private SimpleStringProperty recipent;
+    private SimpleStringProperty recipient;
     private SimpleObjectProperty<SizeInteger> size;
     private SimpleObjectProperty<Date> date;
     private boolean isRead;
@@ -18,7 +18,7 @@ public class EmailMessage {
     public EmailMessage(String subject, String sender, String recipient, int size, Date date, boolean isRead, Message message){
         this.subject = new SimpleStringProperty(subject);
         this.sender = new SimpleStringProperty(sender);
-        this.recipent = new SimpleStringProperty(recipient);
+        this.recipient = new SimpleStringProperty(recipient);
         this.size = new SimpleObjectProperty<SizeInteger>(new SizeInteger(size));
         this.date = new SimpleObjectProperty<Date>(date);
         this.isRead = isRead;
@@ -32,8 +32,8 @@ public class EmailMessage {
         return this.sender.get();
 
     }
-    public String getRecipent(){
-        return this.recipent.getName();
+    public String getRecipient(){
+        return this.recipient.getName();
     }
     public SizeInteger getSize(){
         return this.size.get();
