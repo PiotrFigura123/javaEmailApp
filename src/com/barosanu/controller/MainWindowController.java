@@ -1,6 +1,7 @@
 package com.barosanu.controller;
 
 import com.barosanu.EmailMenager;
+import com.barosanu.controller.services.MessageRendererService;
 import com.barosanu.model.EmailMessage;
 import com.barosanu.model.EmailTreeItem;
 import com.barosanu.model.SizeInteger;
@@ -42,6 +43,8 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private WebView emailWebView;
 
+    private MessageRendererService messageRendererService;
+
     @FXML
     private TreeView<String> emailsTreeView;
 
@@ -66,6 +69,22 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpEmailsTableView();
         setUpFolderSelection();
         setUpBoldRows();
+        setUpMessageRendererService();
+        setUpMessageSelection();
+    }
+
+    private void setUpMessageSelection() {
+        emailTableView.setOnMouseClicked(event->{
+            EmailMessage emailMessage = emailTableView.getSelectionModel().getSelectedItem();
+            if(emailMessage!=null){
+                messageRendererService.setEmailMessage(emailMessage);
+                messageRendererService.restart();
+            }
+        });
+    }
+
+    private void setUpMessageRendererService() {
+        messageRendererService = new MessageRendererService(emailWebView.getEngine());
     }
 
     private void setUpBoldRows() {
