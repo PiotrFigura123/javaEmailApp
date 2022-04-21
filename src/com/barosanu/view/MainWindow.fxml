@@ -37,7 +37,7 @@
         <columns>
           <TableColumn fx:id="senderCol" prefWidth="75.0" text="Sender" />
           <TableColumn fx:id="subjectCol" prefWidth="75.0" text="Subject" />
-            <TableColumn fx:id="recipentCol" prefWidth="75.0" text="Recipient" />
+            <TableColumn fx:id="recipientCol" prefWidth="75.0" text="Recipient" />
             <TableColumn fx:id="sizeCol" prefWidth="75.0" text="Size" />
             <TableColumn fx:id="dateCol" prefWidth="75.0" text="Date" />
         </columns>
