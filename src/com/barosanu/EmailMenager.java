@@ -5,6 +5,7 @@ import com.barosanu.controller.services.FolderUpdaterService;
 import com.barosanu.model.EmailAccount;
 import com.barosanu.model.EmailMessage;
 import com.barosanu.model.EmailTreeItem;
+import com.barosanu.view.IconResolver;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ProgressIndicator;
@@ -23,6 +24,7 @@ public class EmailMenager {
     public ObservableList<EmailAccount> getEmailAccounts(){
         return emailAccounts;
     }
+    private IconResolver iconResolver= new IconResolver();
 
     public EmailTreeItem<String> getSelectedFolder() {
         return selectedFolder;
@@ -58,6 +60,7 @@ public class EmailMenager {
     public void addEmailAccount(EmailAccount emailAccount){
         emailAccounts.add(emailAccount);
         EmailTreeItem<String> treeItem = new EmailTreeItem<String>(emailAccount.getAddress());
+        treeItem.setGraphic(iconResolver.getIconForFolder(emailAccount.getAddress()));
         FetchFolderService fetchFolderService = new FetchFolderService(emailAccount.getStore(),treeItem, folderList);
         fetchFolderService.start();
         foldersRoot.getChildren().add(treeItem);
