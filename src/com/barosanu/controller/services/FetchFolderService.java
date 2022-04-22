@@ -64,7 +64,7 @@ public class FetchFolderService extends Service<Void> {
         public void messagesAdded(MessageCountEvent e) {
             for(int i=0;i<e.getMessages().length;i++){
                 try{
-                    Message message = folder.getMessage(folder.getMessageCount());
+                    Message message = folder.getMessage(folder.getMessageCount()-i);
                     emailTreeItem.addEmailToTop(message);
                 }catch(MessagingException ex){
                     ex.printStackTrace();

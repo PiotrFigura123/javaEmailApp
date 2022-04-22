@@ -38,7 +38,7 @@ public class EmailTreeItem<String> extends TreeItem<String> {
         EmailMessage emailMessage = new EmailMessage(
                 message.getSubject(),
                 message.getFrom()[0].toString(),
-                message.getRecipients(Message.RecipientType.TO)[0].toString(),
+                message.getRecipients(MimeMessage.RecipientType.TO)[0].toString(),
                 message.getSize(),
                 message.getSentDate(),
                 messageIsRead,

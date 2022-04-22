@@ -95,6 +95,7 @@ public class MainWindowController extends BaseController implements Initializabl
                 if(!emailMessage.isRead()){
                     emailMenager.setRead();
                 }
+
                 messageRendererService.setEmailMessage(emailMessage);
                 messageRendererService.restart();
             }
