@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EmailApp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EmailApp_jar</output-path>
+    <root id="archive" name="EmailApp.jar">
+      <element id="module-output" name="EmailApp" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/openjfx-18_windows-x64_bin-sdk/javafx-sdk-18/lib/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../lib/activation.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../lib/javax.mail.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

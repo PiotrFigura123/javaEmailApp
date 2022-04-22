@@ -61,6 +61,10 @@ public class MainWindowController extends BaseController implements Initializabl
         viewFactory.showLoginWindow();
 
     }
+    @FXML
+    void composeMessageAction() {
+        viewFactory.showComposeMessageWindow();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,6 +95,7 @@ public class MainWindowController extends BaseController implements Initializabl
                 if(!emailMessage.isRead()){
                     emailMenager.setRead();
                 }
+
                 messageRendererService.setEmailMessage(emailMessage);
                 messageRendererService.restart();
             }
