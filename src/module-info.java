@@ -5,6 +5,7 @@ module EmailApp {
     requires javafx.controls;
     requires activation;
     requires java.mail;
+    requires java.desktop;
 
     opens com.barosanu;
     opens com.barosanu.view;
