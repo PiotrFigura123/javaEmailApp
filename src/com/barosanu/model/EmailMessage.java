@@ -5,7 +5,11 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeBodyPart;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class EmailMessage {
     private SimpleStringProperty subject;
@@ -15,6 +19,9 @@ public class EmailMessage {
     private SimpleObjectProperty<Date> date;
     private boolean isRead;
     private Message message;
+    private List<MimeBodyPart> attachmentList = new ArrayList<MimeBodyPart>();
+    private boolean hasAttachment = false;
+
     public EmailMessage(String subject, String sender, String recipient, int size, Date date, boolean isRead, Message message){
         this.subject = new SimpleStringProperty(subject);
         this.sender = new SimpleStringProperty(sender);
@@ -28,12 +35,17 @@ public class EmailMessage {
         return this.subject.get();
 
     }
+    public boolean hasAttachments(){
+        return  hasAttachment;
+    }
     public String getSender(){
         return this.sender.get();
-
+    }
+    public List<MimeBodyPart> getAttachmentList(){
+        return attachmentList;
     }
     public String getRecipient(){
-        return this.recipient.getName();
+        return this.recipient.get();
     }
     public SizeInteger getSize(){
         return this.size.get();
@@ -49,5 +61,17 @@ public class EmailMessage {
     }
     public Message getMessage(){
         return this.message;
+    }
+
+    public void addAttachment(MimeBodyPart mbp) {
+        hasAttachment = true;
+        attachmentList.add(mbp);
+        try{
+            System.out.println("added attach "+mbp.getFileName());
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
