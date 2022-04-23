@@ -13,10 +13,11 @@
       <Label layoutX="31.0" layoutY="93.0" text="Subject" />
       <TextField fx:id="recipientTextField" layoutX="92.0" layoutY="55.0" prefHeight="25.0" prefWidth="199.0" />
       <TextField fx:id="subjectTextField" layoutX="92.0" layoutY="89.0" prefHeight="25.0" prefWidth="199.0" />
-      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-2.0" layoutY="140.0" prefHeight="229.0" prefWidth="464.0" />
+      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-2.0" layoutY="165.0" prefHeight="204.0" prefWidth="464.0" />
       <Label fx:id="errorLabel" layoutX="51.0" layoutY="369.0" />
       <Button layoutX="361.0" layoutY="374.0" mnemonicParsing="false" onAction="#sendButtonAction" text="Send" />
       <ChoiceBox fx:id="emailAccountChoice" layoutX="92.0" layoutY="21.0" prefHeight="25.0" prefWidth="199.0" />
       <Label layoutX="27.0" layoutY="25.0" text="Account" />
+      <Button layoutX="24.0" layoutY="128.0" mnemonicParsing="false" onAction="#attachButtonAction" text="Attach:" />
    </children>
 </AnchorPane>
