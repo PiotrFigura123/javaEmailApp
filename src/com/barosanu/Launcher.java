@@ -2,6 +2,7 @@ package com.barosanu;
 
 import com.barosanu.controller.persistance.Persistance;
 import com.barosanu.controller.persistance.ValidAccount;
+import com.barosanu.controller.services.LoginService;
 import com.barosanu.model.EmailAccount;
 import com.barosanu.view.ViewFactory;
 import javafx.application.Application;
@@ -27,7 +28,21 @@ public class Launcher extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         ViewFactory viewFactory = new ViewFactory(emailMenager);
-        viewFactory.showLoginWindow();
+        List<ValidAccount> validAccountList = persistance.loadFromPersistance();
+        if(validAccountList.size()>0){
+            viewFactory.showMainWindow();
+            for(ValidAccount validAccount:validAccountList){
+                EmailAccount emailAccount = new EmailAccount(validAccount.getAddress(), validAccount.getPassword());
+                LoginService loginService = new LoginService(emailAccount, emailMenager);
+                loginService.start();
+            }
+        }else{
+            viewFactory.showLoginWindow();
+        }
+    }
+
+    private void checkPersistance() {
+
     }
 
     @Override
